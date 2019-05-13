@@ -12,6 +12,9 @@ public abstract class Personagem : MonoBehaviour
     public Atributos meusAtributos;
     public List<Habilidade> Habilidades;
     public List<Item> Itens;
+
+    protected bool morrido = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +27,10 @@ public abstract class Personagem : MonoBehaviour
         
     }
 
-    public void SofrerDano(float dano) {
+    public virtual void SofrerDano(float dano) {
         meusAtributos.vidaAtual -= dano;
         if (meusAtributos.vidaAtual <= 0) {
+            morrido = true;
             Debug.Log("Morreu!");
         }
 

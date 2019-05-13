@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SkeletonController : NPC
+public class EnemyController : NPC
 {
     Animator meuAnimator;
     Rigidbody meuCorpo;
@@ -33,13 +33,18 @@ public class SkeletonController : NPC
         meuCorpo = GetComponent<Rigidbody>();
 
         Player = GameManager._instance.Player;
+
+        Waypoints = SpawnManager._instance.Waypoints;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        MovimentoAI();
-        MudarAnimassaum();
+        if(morrido == false) { 
+            MovimentoAI();
+            MudarAnimassaum();
+        }
     }
 
     /// <summary>
@@ -106,6 +111,16 @@ public class SkeletonController : NPC
             meuAgente.SetDestination(Waypoints[waypointAtual].position);
             //Desenha a linha ciana
             Debug.DrawLine(transform.position, Player.transform.position, Color.cyan);
+        }
+    }
+
+    public override void SofrerDano(float dano)
+    {
+        base.SofrerDano(dano);
+        if (morrido == true) {
+            meuAnimator.SetTrigger("Morrendo");
+            GetComponent<CapsuleCollider>().enabled = false;
+            Destroy(gameObject, 5);
         }
     }
 

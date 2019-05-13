@@ -1779,6 +1779,7 @@ GameObject:
   - component: {fileID: 3335293572931371808}
   - component: {fileID: 4085868939833621836}
   - component: {fileID: 4721656784027796487}
+  - component: {fileID: 1666343996721187879}
   m_Layer: 0
   m_Name: ME4 cam
   m_TagString: Untagged
@@ -1845,6 +1846,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &1666343996721187879
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8323474844617534736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 15.226806
+  m_Height: 314.9634
+  m_Direction: 2
+  m_Center: {x: 0.6590067, y: 0.39806518, z: 1.1662798}
 --- !u!1 &8998084827027685090
 GameObject:
   m_ObjectHideFlags: 0

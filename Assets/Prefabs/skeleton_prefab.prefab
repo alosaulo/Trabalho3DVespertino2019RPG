@@ -1980,7 +1980,7 @@ GameObject:
   - component: {fileID: 106938663}
   m_Layer: 0
   m_Name: skeleton_prefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2062,6 +2062,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91cee65eb24c65f488ae23b0a7c3d3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Nivel: 0
+  Experiencia: 0
+  minhaRassa: 0
+  minhaClasse: 0
+  meusAtributos:
+    vida: 10
+    vidaAtual: 0
+    mana: 0
+    manaAtual: 0
+    Inteligencia: 0
+    Forssa: 0
+    Destreza: 0
+    ModAtributos:
+      ModForssa: 0
+      ModDestreza: 0
+      ModInteligencia: 0
+  Habilidades: []
+  Itens: []
   distanciaDoAlvo: 1
   distanciaMinPlayer: 10
   Waypoints:

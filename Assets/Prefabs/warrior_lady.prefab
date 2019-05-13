@@ -1915,7 +1915,7 @@ GameObject:
   - component: {fileID: 938385321}
   m_Layer: 0
   m_Name: warrior_lady
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2002,7 +2002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nivel: 0
   Experiencia: 0
-  minhaRassa: 0
+  minhaRassa: 2
   minhaClasse: 0
   meusAtributos:
     vida: 0
@@ -2011,13 +2011,15 @@ MonoBehaviour:
     manaAtual: 0
     Inteligencia: 0
     Forssa: 0
-    Destreza: 10
+    Destreza: 25
     ModAtributos:
       ModForssa: 0
       ModDestreza: 0
       ModInteligencia: 0
   Habilidades: []
   Itens: []
+  estadoSuperior: 0
+  estadoInferior: 0
   playerHand: {fileID: 829468118}
   playerScabbard: {fileID: 188050664}
   playerWeapon: {fileID: 4836509874826844128}

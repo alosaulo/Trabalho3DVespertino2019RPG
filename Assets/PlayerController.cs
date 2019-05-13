@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : Player
 {
-
+    public CapsuleCollider WeaponCollider;
     public GameObject playerHand;
     public GameObject playerScabbard;
     public GameObject playerWeapon;
@@ -27,6 +27,7 @@ public class PlayerController : Player
     void Update()
     {
         Move();
+        Attack();
         SheathWeapon();
         ChangeAnimations();
     }
@@ -40,6 +41,12 @@ public class PlayerController : Player
         if (Mathf.Abs(hAxis) > 0)
             myBody.AddTorque(Vector3.up * hAxis);
 
+    }
+
+    void Attack() {
+        if (Input.GetButtonDown("Fire1")) {
+            myAnimator.SetTrigger("Ataque");
+        }
     }
 
     void SheathWeapon() {
@@ -71,6 +78,27 @@ public class PlayerController : Player
     void ChangeAnimations() {
         myAnimator.SetFloat("Y", vAxis);
         myAnimator.SetBool("Desembainhar",sheath);
+    }
+
+    public void ActivateWeaponCollider()
+    {
+        Debug.Log("Ativou");
+        WeaponCollider.enabled = true;
+    }
+
+    public void DeactivateWeaponCollider()
+    {
+        Debug.Log("Desativou");
+        WeaponCollider.enabled = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            EnemyController enemy = other.GetComponent<EnemyController>();
+            enemy.SofrerDano(meusAtributos.Forssa);
+        }
     }
 
 }
