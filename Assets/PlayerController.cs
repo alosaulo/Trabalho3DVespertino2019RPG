@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Personagem
+public class PlayerController : Player
 {
 
     public GameObject playerHand;
@@ -20,7 +20,7 @@ public class PlayerController : Personagem
         myBody = GetComponent<Rigidbody>();
         Debug.Log(meusAtributos.Destreza);
 
-        //GetWeaponAnimation();
+        GetWeaponAnimation();
     }
 
     // Update is called once per frame
@@ -33,10 +33,12 @@ public class PlayerController : Personagem
 
     void Move() {
         vAxis = Input.GetAxis("Vertical");
+        hAxis = Input.GetAxis("Horizontal");
 
         if (Mathf.Abs(vAxis) > 0)
             myBody.AddRelativeForce(Vector3.forward * vAxis * meusAtributos.Destreza * 10);
-        
+        if (Mathf.Abs(hAxis) > 0)
+            myBody.AddTorque(Vector3.up * hAxis);
 
     }
 
