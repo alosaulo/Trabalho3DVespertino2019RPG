@@ -28,6 +28,7 @@ public abstract class Personagem : MonoBehaviour
     }
 
     public virtual void SofrerDano(float dano) {
+        Debug.Log(dano);
         meusAtributos.vidaAtual -= dano;
         if (meusAtributos.vidaAtual <= 0) {
             morrido = true;

@@ -16,8 +16,14 @@ public class Atributos
 
     public ModAtributos ModAtributos;
 
-    public void CalculaVida() { }
-    public void CalculaMana() { }
+    public void CalculaVida() {
+        vida = Forssa * 5;
+        vidaAtual = vida;
+    }
+    public void CalculaMana() {
+        mana = Inteligencia * 5;
+        manaAtual = mana;
+    }
     public void CalulaModClass() { }
 
 }

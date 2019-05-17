@@ -961,8 +961,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017585141}
-  m_LocalRotation: {x: 0.0014738647, y: -0.010919809, z: -0.29445827, w: 0.95560086}
-  m_LocalPosition: {x: -0.201031, y: 0, z: -1.4784746e-12}
+  m_LocalRotation: {x: 0.0014738587, y: -0.0109197935, z: -0.29445824, w: 0.9556009}
+  m_LocalPosition: {x: -0.20103109, y: -0.000000029802315, z: -0.0000000130385125}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children:
   - {fileID: 1749045798}
@@ -1116,8 +1116,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121452830}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -3.5527137e-15, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1364938261}
@@ -2072,7 +2072,7 @@ MonoBehaviour:
     mana: 0
     manaAtual: 0
     Inteligencia: 0
-    Forssa: 0
+    Forssa: 5
     Destreza: 0
     ModAtributos:
       ModForssa: 0
@@ -2080,8 +2080,10 @@ MonoBehaviour:
       ModInteligencia: 0
   Habilidades: []
   Itens: []
+  WeaponCollider: {fileID: 0}
   distanciaDoAlvo: 1
   distanciaMinPlayer: 10
+  hitDistance: 10
   Waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -2392,6 +2394,20 @@ Transform:
   m_Father: {fileID: 1481229743}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &580985695
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648186700323293119}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.12190664
+  m_Height: 0.49616474
+  m_Direction: 0
+  m_Center: {x: -0.0018518191, y: 0.040699717, z: 0.021214606}
 --- !u!1001 &2918626938929181116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2481,6 +2497,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d60b49cbcb501f742872a3c1f9300aa3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ff0655ebed74164cb335823443ecf92, type: 3}
+--- !u!1 &4648186700323293119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7494172923871458819, guid: 7ff0655ebed74164cb335823443ecf92,
+    type: 3}
+  m_PrefabInstance: {fileID: 2918626938929181116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8807943201596846033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5961941342211628653, guid: 7ff0655ebed74164cb335823443ecf92,

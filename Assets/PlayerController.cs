@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : Player
 {
+    public GUIPlayer GUIPlayer;
     public CapsuleCollider WeaponCollider;
     public GameObject playerHand;
     public GameObject playerScabbard;
@@ -19,6 +20,12 @@ public class PlayerController : Player
         myAnimator = GetComponent<Animator>();
         myBody = GetComponent<Rigidbody>();
         Debug.Log(meusAtributos.Destreza);
+
+        meusAtributos.CalculaVida();
+        meusAtributos.CalculaMana();
+
+        GUIPlayer.SetVida(meusAtributos.vidaAtual, meusAtributos.vida);
+        GUIPlayer.SetMana(meusAtributos.manaAtual, meusAtributos.mana);
 
         GetWeaponAnimation();
     }
@@ -99,6 +106,12 @@ public class PlayerController : Player
             EnemyController enemy = other.GetComponent<EnemyController>();
             enemy.SofrerDano(meusAtributos.Forssa);
         }
+    }
+
+    public override void SofrerDano(float dano)
+    {
+        base.SofrerDano(dano);
+        GUIPlayer.SetVida(meusAtributos.vidaAtual, meusAtributos.vida);
     }
 
 }

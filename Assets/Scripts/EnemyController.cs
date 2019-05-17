@@ -13,6 +13,8 @@ public class EnemyController : NPC
 
     Player Player;
 
+    [Header("Script Inimigo")]
+
     public CapsuleCollider WeaponCollider;
 
     public float distanciaDoAlvo;
@@ -107,8 +109,15 @@ public class EnemyController : NPC
         //Se não, continua seguindo o waypoint
         if (distanciaPlayer < distanciaMinPlayer)
         {
-            //Seta o destino para o player
-            meuAgente.SetDestination(Player.transform.position);
+            if (distanciaPlayer > 1.3)
+            {
+                //Seta o destino para o player
+                meuAgente.SetDestination(Player.transform.position);
+            }
+            else {
+                meuAgente.SetDestination(transform.position);
+                estadoTorso = EstadosPersonagem.Ataque;
+            }
             //Desenha a linha vermelha
             Debug.DrawLine(transform.position, Player.transform.position, Color.red);
         }
@@ -163,6 +172,11 @@ public class EnemyController : NPC
                 Color.magenta);
 
             Debug.Log(hit.collider.gameObject);
+
+            if (hit.collider.gameObject.tag == "Player") {
+                Player.SofrerDano(meusAtributos.Forssa);
+            }
+
         }
     }
 
