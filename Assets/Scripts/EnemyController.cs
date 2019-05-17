@@ -9,11 +9,17 @@ public class EnemyController : NPC
     Rigidbody meuCorpo;
     NavMeshAgent meuAgente;
 
+    
+
     Player Player;
+
+    public CapsuleCollider WeaponCollider;
 
     public float distanciaDoAlvo;
 
     public float distanciaMinPlayer;
+
+    public float hitDistance;
 
     public List<Transform> Waypoints;
 
@@ -135,5 +141,39 @@ public class EnemyController : NPC
             estadoTorso = EstadosPersonagem.Movimento;
         }
     }
+
+    public void AtivarColliderArma() {
+        WeaponCollider.enabled = true;
+    }
+
+    public void DesativarColliderArma() {
+        WeaponCollider.enabled = false;
+    }
+
+    public void Atacar() {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, 
+            transform.TransformDirection(Vector3.forward),
+            out hit,
+            hitDistance)){
+
+            Debug.DrawRay(transform.position, 
+                transform.TransformDirection(Vector3.forward) * hitDistance,
+                Color.magenta);
+
+            Debug.Log(hit.collider.gameObject);
+        }
+    }
+
+    //Verifica se a arma colidiu com o player
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player") {
+            PlayerController player = other.GetComponent<PlayerController>();
+            player.SofrerDano(meusAtributos.Forssa);
+        }
+    }
+
 
 }
