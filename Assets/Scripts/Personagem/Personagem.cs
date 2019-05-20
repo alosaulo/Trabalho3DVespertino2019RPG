@@ -15,6 +15,10 @@ public abstract class Personagem : MonoBehaviour
 
     protected bool morrido = false;
 
+    public bool estaMorto() {
+        return morrido;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +32,10 @@ public abstract class Personagem : MonoBehaviour
     }
 
     public virtual void SofrerDano(float dano) {
-        Debug.Log(dano);
         meusAtributos.vidaAtual -= dano;
         if (meusAtributos.vidaAtual <= 0) {
             morrido = true;
-            Debug.Log("Morreu!");
+            
         }
 
     }

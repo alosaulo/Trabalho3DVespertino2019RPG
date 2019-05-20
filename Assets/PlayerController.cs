@@ -9,9 +9,11 @@ public class PlayerController : Player
     public GameObject playerHand;
     public GameObject playerScabbard;
     public GameObject playerWeapon;
+    public Transform transformPe;
     Rigidbody myBody;
     Animator myAnimator;
     public bool sheath = false;
+    public bool isGrounded = false;
     float vAxis, hAxis;
 
     // Start is called before the first frame update
@@ -33,9 +35,14 @@ public class PlayerController : Player
     // Update is called once per frame
     void Update()
     {
-        Move();
-        Attack();
-        SheathWeapon();
+        if (morrido == false)
+        {
+            Move();
+            Jump();
+            Attack();
+            SheathWeapon();
+            CheckGround();
+        }
         ChangeAnimations();
     }
 
@@ -50,8 +57,36 @@ public class PlayerController : Player
 
     }
 
+    void CheckGround() {
+        float radius = 0.02f;
+        float distance = 0.1f;
+        var grounded = Physics.SphereCast(new Ray(transformPe.position, Vector3.down), 
+            radius, 
+            distance);
+        if (grounded == true)
+        {
+            isGrounded = true;
+        }
+        else {
+            isGrounded = false;
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transformPe.position, 0.02f);
+    }
+
+    void Jump() {
+        if (Input.GetButtonUp("Jump") && isGrounded == true) {
+            myBody.AddForce(Vector3.up * 300);
+        }
+    }
+
     void Attack() {
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1") && sheath == true) {
             myAnimator.SetTrigger("Ataque");
         }
     }
@@ -74,7 +109,6 @@ public class PlayerController : Player
         if (sheath == true)
         {
             playerWeapon.transform.SetParent(playerHand.transform);
-            
         }
         else
         {
@@ -85,6 +119,7 @@ public class PlayerController : Player
     void ChangeAnimations() {
         myAnimator.SetFloat("Y", vAxis);
         myAnimator.SetBool("Desembainhar",sheath);
+        myAnimator.SetBool("Pulo", !isGrounded);
     }
 
     public void ActivateWeaponCollider()
@@ -112,6 +147,13 @@ public class PlayerController : Player
     {
         base.SofrerDano(dano);
         GUIPlayer.SetVida(meusAtributos.vidaAtual, meusAtributos.vida);
+        myAnimator.SetTrigger("Dano");
+        if (morrido == true)
+        {
+            myAnimator.SetTrigger("Morte");
+            GetComponent<CapsuleCollider>().enabled = false;
+            myBody.useGravity = false;
+        }
     }
 
 }

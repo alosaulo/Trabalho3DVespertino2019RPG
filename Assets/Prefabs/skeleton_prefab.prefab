@@ -1981,7 +1981,7 @@ GameObject:
   m_Layer: 0
   m_Name: skeleton_prefab
   m_TagString: Enemy
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2072,7 +2072,7 @@ MonoBehaviour:
     mana: 0
     manaAtual: 0
     Inteligencia: 0
-    Forssa: 5
+    Forssa: 2
     Destreza: 0
     ModAtributos:
       ModForssa: 0
@@ -2083,7 +2083,7 @@ MonoBehaviour:
   WeaponCollider: {fileID: 0}
   distanciaDoAlvo: 1
   distanciaMinPlayer: 10
-  hitDistance: 10
+  hitDistance: 2
   Waypoints:
   - {fileID: 0}
   - {fileID: 0}

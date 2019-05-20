@@ -9,9 +9,11 @@ public class EnemyController : NPC
     Rigidbody meuCorpo;
     NavMeshAgent meuAgente;
 
-    
+    bool atacando = false;
 
     Player Player;
+
+    bool PlayerDead = false;
 
     [Header("Script Inimigo")]
 
@@ -52,6 +54,7 @@ public class EnemyController : NPC
         if(morrido == false) { 
             MovimentoAI();
             MudarAnimassaum();
+            PlayerDead = Player.estaMorto();
         }
     }
 
@@ -143,6 +146,7 @@ public class EnemyController : NPC
     /// Reseta as animações, volta ao estado de movimento
     /// </summary>
     public void RestearAnimassaum() {
+        atacando = false;
         if (estadoPernas != EstadosPersonagem.Movimento) {
             estadoPernas = EstadosPersonagem.Movimento;
         }
@@ -160,23 +164,36 @@ public class EnemyController : NPC
     }
 
     public void Atacar() {
-        RaycastHit hit;
+        if (atacando == false) {
+            atacando = true;
 
-        if (Physics.Raycast(transform.position, 
-            transform.TransformDirection(Vector3.forward),
-            out hit,
-            hitDistance)){
+            RaycastHit hit;
 
-            Debug.DrawRay(transform.position, 
-                transform.TransformDirection(Vector3.forward) * hitDistance,
-                Color.magenta);
+            Vector3 minhaPos = transform.position;
 
-            Debug.Log(hit.collider.gameObject);
+            float offsetY = minhaPos.y + 0.8f;
 
-            if (hit.collider.gameObject.tag == "Player") {
-                Player.SofrerDano(meusAtributos.Forssa);
+            Vector3 originOffset = new Vector3(minhaPos.x,
+                offsetY,
+                minhaPos.z);
+
+            bool rayHit = Physics.Raycast(minhaPos,
+                transform.TransformDirection(Vector3.forward),
+                out hit,
+                hitDistance);
+
+            if (rayHit){
+                Debug.DrawRay(originOffset, 
+                    transform.TransformDirection(Vector3.forward) * hitDistance,
+                    Color.magenta,5f);
+
+                Debug.Log(gameObject.tag);
+
+                if (hit.collider.gameObject.tag == "Player") {
+                    Player.SofrerDano(meusAtributos.Forssa);
+                }
+                
             }
-
         }
     }
 
