@@ -1984,7 +1984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1963975157
 Transform:
   m_ObjectHideFlags: 0
@@ -2083,7 +2083,7 @@ MonoBehaviour:
   WeaponCollider: {fileID: 0}
   distanciaDoAlvo: 1
   distanciaMinPlayer: 10
-  hitDistance: 2
+  hitDistance: 1
   Waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -2403,7 +2403,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4648186700323293119}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.12190664
   m_Height: 0.49616474
   m_Direction: 0

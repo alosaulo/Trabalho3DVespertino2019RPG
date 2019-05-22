@@ -56,6 +56,11 @@ public class EnemyController : NPC
             MudarAnimassaum();
             PlayerDead = Player.estaMorto();
         }
+        else{
+            estadoPernas = EstadosPersonagem.Morrendo;
+            estadoTorso = EstadosPersonagem.Morrendo;
+            MudarAnimassaum();
+        }
     }
 
     /// <summary>
@@ -137,6 +142,8 @@ public class EnemyController : NPC
         base.SofrerDano(dano);
         if (morrido == true) {
             meuAnimator.SetTrigger("Morrendo");
+            estadoPernas = EstadosPersonagem.Morrendo;
+            estadoTorso = EstadosPersonagem.Morrendo;
             GetComponent<CapsuleCollider>().enabled = false;
             Destroy(gameObject, 5);
         }
@@ -166,6 +173,7 @@ public class EnemyController : NPC
     public void Atacar() {
         if (atacando == false) {
             atacando = true;
+            Debug.Log("Atacando");
 
             RaycastHit hit;
 
@@ -182,29 +190,21 @@ public class EnemyController : NPC
                 out hit,
                 hitDistance);
 
-            if (rayHit){
-                Debug.DrawRay(originOffset, 
-                    transform.TransformDirection(Vector3.forward) * hitDistance,
-                    Color.magenta,5f);
+            Debug.DrawRay(originOffset,
+                transform.TransformDirection(Vector3.forward) * hitDistance,
+                Color.magenta, 0.001f);
 
+            if (rayHit)
+            {
                 Debug.Log(gameObject.tag);
 
-                if (hit.collider.gameObject.tag == "Player") {
+                if (hit.collider.gameObject.tag == "Player")
+                {
                     Player.SofrerDano(meusAtributos.Forssa);
                 }
-                
             }
+            atacando = false;
         }
     }
-
-    //Verifica se a arma colidiu com o player
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player") {
-            PlayerController player = other.GetComponent<PlayerController>();
-            player.SofrerDano(meusAtributos.Forssa);
-        }
-    }
-
 
 }
