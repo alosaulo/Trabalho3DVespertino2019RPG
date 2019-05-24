@@ -6,12 +6,18 @@ public class PlayerController : Player
 {
     public GUIPlayer GUIPlayer;
     public CapsuleCollider WeaponCollider;
+
+    public GameObject OrigemAtaqueEspecial;
+    public GameObject AtkSpecial;
     public GameObject playerHand;
     public GameObject playerScabbard;
     public GameObject playerWeapon;
+
     public Transform transformPe;
+
     Rigidbody myBody;
     Animator myAnimator;
+
     public bool sheath = false;
     public bool isGrounded = false;
     float vAxis, hAxis;
@@ -40,6 +46,7 @@ public class PlayerController : Player
             Move();
             Jump();
             Attack();
+            AttackSpecial();
             SheathWeapon();
             CheckGround();
         }
@@ -89,6 +96,21 @@ public class PlayerController : Player
         if (Input.GetButtonDown("Fire1") && sheath == true) {
             myAnimator.SetTrigger("Ataque");
         }
+    }
+
+    void AttackSpecial() {
+        if (Input.GetButtonDown("Fire2") && sheath == true) {
+            myAnimator.SetTrigger("AtaqueEspecial");
+        }
+    }
+
+    void DoAttackSpecial() {
+        GameObject atk = Instantiate(AtkSpecial, 
+            OrigemAtaqueEspecial.transform.position, 
+            OrigemAtaqueEspecial.transform.rotation);
+
+        Destroy(atk, 3);
+
     }
 
     void SheathWeapon() {
