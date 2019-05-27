@@ -59,6 +59,7 @@ public class EnemyController : NPC
         else{
             estadoPernas = EstadosPersonagem.Morrendo;
             estadoTorso = EstadosPersonagem.Morrendo;
+            meuAgente.SetDestination(transform.position);
             MudarAnimassaum();
         }
     }

@@ -284,7 +284,7 @@ MonoBehaviour:
   - {fileID: 1269391437}
   - {fileID: 806785239}
   SkeletonEnemy: {fileID: 1963975155, guid: e5d8d13bdec1cc14b851270ccd8544a2, type: 3}
-  secondsToSpawn: 5
+  secondsToSpawn: 1
 --- !u!1 &344461257
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +378,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint01 (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -716,7 +716,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint01 (5)
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1009,7 +1009,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint01 (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1039,7 +1039,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint01 (3)
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1069,7 +1069,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint01 (4)
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1099,7 +1099,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1326,6 +1326,18 @@ PrefabInstance:
       propertyPath: OrigemAtaqueEspecial
       value: 
       objectReference: {fileID: 1571513104}
+    - target: {fileID: 938385321, guid: f32d05dd599d7c44c9cd5e3f172a0ef1, type: 3}
+      propertyPath: manaToRecover
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 938385321, guid: f32d05dd599d7c44c9cd5e3f172a0ef1, type: 3}
+      propertyPath: secondsToManaRecover
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 938385321, guid: f32d05dd599d7c44c9cd5e3f172a0ef1, type: 3}
+      propertyPath: specialAtkMana
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4861325597659987147, guid: f32d05dd599d7c44c9cd5e3f172a0ef1,
         type: 3}
       propertyPath: m_Enabled
@@ -2195,7 +2207,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint02
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2225,7 +2237,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint01
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

@@ -22,6 +22,12 @@ public class PlayerController : Player
     public bool isGrounded = false;
     float vAxis, hAxis;
 
+    bool manaRecovery = true;
+
+    public int specialAtkMana;
+    public int manaToRecover;
+    public int secondsToManaRecover;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +51,9 @@ public class PlayerController : Player
         {
             Move();
             Jump();
+            if (manaRecovery == true) {
+                StartCoroutine("ManaRecovery");
+            }
             Attack();
             AttackSpecial();
             SheathWeapon();
@@ -99,18 +108,49 @@ public class PlayerController : Player
     }
 
     void AttackSpecial() {
-        if (Input.GetButtonDown("Fire2") && sheath == true) {
+        if (Input.GetButtonDown("Fire2") && sheath == true && 
+            meusAtributos.manaAtual >= specialAtkMana) {
             myAnimator.SetTrigger("AtaqueEspecial");
         }
     }
 
     void DoAttackSpecial() {
+
         GameObject atk = Instantiate(AtkSpecial, 
             OrigemAtaqueEspecial.transform.position, 
             OrigemAtaqueEspecial.transform.rotation);
 
-        Destroy(atk, 3);
+        EspecialController esp = atk.GetComponent<EspecialController>();
 
+        esp.SetDamage(meusAtributos.Forssa * 1.5f);
+
+        ManaWaste(specialAtkMana);
+
+        Destroy(atk, 0.3f);
+
+    }
+
+    void ManaWaste(int mana) {
+        if(meusAtributos.manaAtual > 0)
+            meusAtributos.manaAtual -= mana;
+
+        GUIPlayer.SetMana(meusAtributos.manaAtual,
+            meusAtributos.mana);
+    }
+
+    IEnumerator ManaRecovery() {
+        if(meusAtributos.manaAtual < meusAtributos.mana)
+        {
+            meusAtributos.manaAtual += manaToRecover;
+            if (meusAtributos.manaAtual > meusAtributos.mana) {
+                meusAtributos.manaAtual = meusAtributos.mana;
+            }
+            GUIPlayer.SetMana(meusAtributos.manaAtual,
+                meusAtributos.mana);
+        }
+        manaRecovery = false;
+        yield return new WaitForSeconds(secondsToManaRecover);
+        manaRecovery = true;
     }
 
     void SheathWeapon() {

@@ -8,6 +8,8 @@ public class EspecialController : MonoBehaviour
     Rigidbody myBody;
     public float speed;
 
+    public float damage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +23,15 @@ public class EspecialController : MonoBehaviour
         
     }
 
+    public void SetDamage(float damage) {
+        this.damage = damage;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Enemy") {
             EnemyController Enemy = other.GetComponent<EnemyController>();
-
+            Enemy.SofrerDano(damage);
         }
     }
 
