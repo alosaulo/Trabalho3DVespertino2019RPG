@@ -30,6 +30,10 @@ public class PlayerWeapon : MonoBehaviour
             NPC npc = other.GetComponent<NPC>();
             npc.SofrerDano(Player.meusAtributos.Forssa);
         }
+        if (other.tag == "Spawner") {
+            SpawnerController SC = other.GetComponent<SpawnerController>();
+            SC.SofrerDano(Player.meusAtributos.Forssa);
+        }
     }
 
 }

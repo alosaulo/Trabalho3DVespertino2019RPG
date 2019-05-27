@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Terreno
   - AtkSpecial
+  - Spawner
   layers:
   - Default
   - TransparentFX
