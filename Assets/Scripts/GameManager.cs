@@ -5,6 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+
+    public GameObject directionaLight;
+    public float lightSpeed;
+
     public static GameManager _instance;
     public Player Player;
 
@@ -22,6 +26,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        directionaLight.transform.Rotate(Vector3.right * lightSpeed * Time.deltaTime);
     }
 }
