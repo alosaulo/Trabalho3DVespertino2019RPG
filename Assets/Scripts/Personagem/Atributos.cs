@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Atributos
@@ -25,5 +26,19 @@ public class Atributos
         manaAtual = mana;
     }
     public void CalulaModClass() { }
+
+    public bool VidaAtualMenorqVida(){
+        if(vidaAtual < vida){
+            return true;
+        }
+        return false;
+    }
+    
+    public void RecuperarVida(float valor){
+        vidaAtual = vidaAtual * valor;
+        if(vidaAtual > vida){
+            vidaAtual = vida;
+        }
+    }
 
 }

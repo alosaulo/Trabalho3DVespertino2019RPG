@@ -17,6 +17,7 @@ public class EnemyController : NPC
 
     [Header("Script Inimigo")]
 
+    public SpawnerController meuSpawner;
     public CapsuleCollider WeaponCollider;
 
     public float distanciaDoAlvo;
@@ -44,7 +45,10 @@ public class EnemyController : NPC
 
         Player = GameManager._instance.Player;
 
-        Waypoints = SpawnManager._instance.Waypoints;
+        if(meuSpawner != null){
+            int numCaminho = Random.Range(0,meuSpawner.qtdWaypoints);     
+            Waypoints = meuSpawner.Caminhos[numCaminho].Waypoints;
+        }
 
     }
 

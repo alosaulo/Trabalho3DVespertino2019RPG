@@ -203,6 +203,10 @@ public class PlayerController : Player
             EnemyController enemy = other.GetComponent<EnemyController>();
             enemy.SofrerDano(meusAtributos.Forssa);
         }
+        if(other.tag == "Possaum"){
+            Possaum possaum = other.GetComponent<Possaum>();
+            possaum.RecuperarVida(meusAtributos, GUIPlayer);
+        }
     }
 
     public override void SofrerDano(float dano)

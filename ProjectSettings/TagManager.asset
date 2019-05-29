@@ -9,6 +9,7 @@ TagManager:
   - Terreno
   - AtkSpecial
   - Spawner
+  - Possaum
   layers:
   - Default
   - TransparentFX

@@ -18,4 +18,5 @@ public class GUIPlayer
         ManaText.text = string.Format("{0}/{1}", mana, manaMax);
     }
 
+
 }
