@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public float lightSpeed;
 
     public static GameManager _instance;
-    public Player Player;
+    public PlayerController Player;
 
     private void Awake()
     {

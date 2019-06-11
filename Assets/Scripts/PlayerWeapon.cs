@@ -7,11 +7,11 @@ public class PlayerWeapon : MonoBehaviour
 
     public CapsuleCollider WeaponCollider;
 
-    Player Player;
+    PlayerController Player;
 
     private void Start()
     {
-        Player = GetComponentInParent<Player>();
+        Player = GetComponentInParent<PlayerController>();
     }
 
     public void ActivateWeaponCollider() {

@@ -4,8 +4,32 @@ using UnityEngine;
 
 public class Possaum : Item
 {
+
     public TipoPossaum TipoPossaum;
+
     public Tamanho Tamanho;
+
+    public void SorteiaPossaum(){
+        float rand = Random.Range(0f,1f);
+        Debug.Log("Valor do drop "+rand);
+        if(rand <= 0.8f){
+            Destroy(gameObject);
+        }else{
+            if(rand <= 0.9f){
+                Tamanho = Tamanho.Pequeno;
+            }else{
+                if(rand <= 0.95f){
+                    Tamanho = Tamanho.Medio;
+                }else{
+                    if(rand <= 1f){
+                        Tamanho = Tamanho.Grande;
+                    }
+                }
+            }
+        }
+        
+    }
+
     public void RecuperarVida(Atributos atributos, GUIPlayer gui) { 
         if(atributos.VidaAtualMenorqVida()){
             switch(Tamanho){

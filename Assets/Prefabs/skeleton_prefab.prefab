@@ -2063,7 +2063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nivel: 0
-  Experiencia: 0
+  Experiencia: 10
   minhaRassa: 0
   minhaClasse: 0
   meusAtributos:
@@ -2079,7 +2079,9 @@ MonoBehaviour:
       ModDestreza: 0
       ModInteligencia: 0
   Habilidades: []
-  Itens: []
+  Itens:
+  - {fileID: 4466310723636814774, guid: 6a042be034edcf74985577fafef834c8, type: 3}
+  meuSpawner: {fileID: 0}
   WeaponCollider: {fileID: 0}
   distanciaDoAlvo: 1
   distanciaMinPlayer: 10

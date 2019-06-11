@@ -11,7 +11,7 @@ public abstract class Personagem : MonoBehaviour
     public Classe minhaClasse;
     public Atributos meusAtributos;
     public List<Habilidade> Habilidades;
-    public List<Item> Itens;
+    public List<GameObject> Itens;
 
     protected bool morrido = false;
 
@@ -52,7 +52,7 @@ public abstract class Personagem : MonoBehaviour
 
     }
 
-    public void AdicionarExp(int exp) {
+    protected void AdicionarExp(int exp) {
         Experiencia += exp;
     }
 

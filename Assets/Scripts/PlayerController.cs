@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Player
+public class PlayerController : Personagem
 {
     public GUIPlayer GUIPlayer;
     public CapsuleCollider WeaponCollider;
@@ -23,6 +23,7 @@ public class PlayerController : Player
     float vAxis, hAxis;
 
     bool manaRecovery = true;
+    int lastLevel;
 
     public int specialAtkMana;
     public int manaToRecover;
@@ -209,6 +210,43 @@ public class PlayerController : Player
         }
     }
 
+    public void SetExperiencia(int exp){
+        AdicionarExp(exp);
+        if(Experiencia < 100){
+            GUIPlayer.SetExp(Experiencia,100);
+            lastLevel = 1;
+            Nivel = 1;
+        }else{
+            if(Experiencia < 300){
+                GUIPlayer.SetExp(Experiencia,300);
+                if(lastLevel == 1){
+                    meusAtributos.qtdPontos += 5;
+                    lastLevel = 2;
+                }
+                Nivel = 2;
+            }else{
+                if(Experiencia < 600){
+                    GUIPlayer.SetExp(Experiencia,600);
+                    if(lastLevel == 2){
+                        meusAtributos.qtdPontos += 5;
+                        lastLevel = 3;
+                    }
+                    Nivel = 3;
+                }else{
+                    if(Experiencia < 1000)
+                    GUIPlayer.SetExp(Experiencia,1000);
+                    if(lastLevel == 3){
+                        meusAtributos.qtdPontos += 5;
+                        lastLevel = 4;
+                    }
+                    Nivel = 4;
+                }
+            }
+        }
+
+        GUIPlayer.SetLvl(Nivel);
+    }
+    
     public override void SofrerDano(float dano)
     {
         base.SofrerDano(dano);

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Atributos
 {
+    public int qtdPontos;
+    
     public float vida;
     public float vidaAtual;
     public float mana;

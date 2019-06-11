@@ -11,7 +11,7 @@ public class EnemyController : NPC
 
     bool atacando = false;
 
-    Player Player;
+    PlayerController Player;
 
     bool PlayerDead = false;
 
@@ -150,7 +150,19 @@ public class EnemyController : NPC
             estadoPernas = EstadosPersonagem.Morrendo;
             estadoTorso = EstadosPersonagem.Morrendo;
             GetComponent<CapsuleCollider>().enabled = false;
+            DroparItem();
+            Player.SetExperiencia(Experiencia);
             Destroy(gameObject, 5);
+        }
+    }
+
+    void DroparItem(){
+        for(int i = 0; i < Itens.Count; i++){
+            Debug.Log("Dropa Item");
+            GameObject prefabItem = Itens[i];
+            GameObject objectItem = Instantiate(prefabItem,transform.position,Quaternion.identity);
+            Possaum possaum = objectItem.GetComponent<Possaum>();
+            possaum.SorteiaPossaum();
         }
     }
 
