@@ -5944,7 +5944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1399700821
 Transform:
   m_ObjectHideFlags: 0
@@ -6449,6 +6449,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177449755319074166, guid: f32d05dd599d7c44c9cd5e3f172a0ef1,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ed4f850934a3f594a9eb57dc4c62fb24, type: 2}
+    - target: {fileID: 1106019270964575635, guid: f32d05dd599d7c44c9cd5e3f172a0ef1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.23137772
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106019270964575635, guid: f32d05dd599d7c44c9cd5e3f172a0ef1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.22212845
+      objectReference: {fileID: 0}
+    - target: {fileID: 561831411052197250, guid: f32d05dd599d7c44c9cd5e3f172a0ef1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0024636814
+      objectReference: {fileID: 0}
+    - target: {fileID: 561831411052197250, guid: f32d05dd599d7c44c9cd5e3f172a0ef1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.05146821
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827921196804079901, guid: f32d05dd599d7c44c9cd5e3f172a0ef1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000076050535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827921196804079901, guid: f32d05dd599d7c44c9cd5e3f172a0ef1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0072892434
+      objectReference: {fileID: 0}
+    - target: {fileID: 5079910681869492854, guid: f32d05dd599d7c44c9cd5e3f172a0ef1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000056800377
+      objectReference: {fileID: 0}
+    - target: {fileID: 5079910681869492854, guid: f32d05dd599d7c44c9cd5e3f172a0ef1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.001608611
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f32d05dd599d7c44c9cd5e3f172a0ef1, type: 3}
